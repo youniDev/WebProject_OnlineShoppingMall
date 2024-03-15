@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/onlineStoreDB?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 1234
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: update  # none, update, create, create-drop, validate
+
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+
+    hiddenmethod:
+      filter:
+        enabled: true # GET, POST ? ? ??? PUT, DELETE ?? ???? ???? ?? ??
+
+  devtools:
+    livereload:
+      enabled: true
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE
